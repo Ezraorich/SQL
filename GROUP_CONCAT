@@ -1,5 +1,24 @@
+#1
 SELECT sell_date, COUNT(DISTINCT product) as 'num_sold',
 GROUP_CONCAT(DISTINCT product ORDER BY product) AS 'products'
 FROM Activities
 GROUP BY sell_date
 ORDER BY sell_date
+
+
+
+#2
+
+select employee_id 
+from Employees
+where employee_id not in (select employee_id from Salaries)
+
+union
+
+select employee_id 
+from Salaries
+where employee_id not in (select employee_id from Employees)
+
+order by employee_id
+
+#3 
